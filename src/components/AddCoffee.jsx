@@ -3,7 +3,7 @@ import { MdKeyboardBackspace } from "react-icons/md";
 import Swal from 'sweetalert2'
 const AddCoffee = () => {
 
-    const handleCoffee = event => {
+    const handleAddCoffee = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -31,7 +31,7 @@ const AddCoffee = () => {
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
-                    text: 'User added successfully',
+                    text: 'Coffee Added successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
@@ -52,7 +52,7 @@ const AddCoffee = () => {
                         The first sip was like a whisper of smoke and spice, dancing across the taste buds before settling into a deep, earthy richness. <br />
                         The bitter edge of the coffee was like a secret melody, a subtle complexity that lingered <br /> on the palate long after the last drop was gone.</p>
                 </div>
-                <form onSubmit={handleCoffee} className="card-body">
+                <form onSubmit={handleAddCoffee} className="card-body">
                     {/* from name and quantity row */}
                     <div className="lg:flex gap-5">
                         <div className="form-control flex-1">
