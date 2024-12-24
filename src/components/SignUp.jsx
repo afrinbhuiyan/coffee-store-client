@@ -1,12 +1,26 @@
+import { useContext } from "react";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const SignUp = () => {
+
+    const {createUser} = useContext(AuthContext);
 
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
-        console.log( form.name.value, form.email.value, form.password.value)
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user)
+            // new user has been creaed
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     return (
