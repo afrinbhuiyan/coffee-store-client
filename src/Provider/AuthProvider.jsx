@@ -1,6 +1,6 @@
  import { useState } from "react";
 import { createContext } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { createUserWithEmailAndPassword } from "firebase/auth/cordova";
 
@@ -15,12 +15,18 @@ const AuthProvider = ({children}) => {
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
+    };
+
+    const signInUser = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     const userInfo = {
         user,
         loading,
         createUser,
+        signInUser
     };
 
     return (
