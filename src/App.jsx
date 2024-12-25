@@ -3,12 +3,15 @@ import { Link, useLoaderData } from 'react-router-dom'
 import './App.css'
 import CoffeeCard from './components/CoffeeCard';
 import { useState } from "react";
+import Bennar from "./components/Bennar";
+import Coffee from "./components/Coffee";
 
 function App() {
   const loadedCoffees = useLoaderData();
   const [coffees, setCoffees] = useState(loadedCoffees);
   return (
     <>
+    <Bennar></Bennar>
     <div className='flex flex-col items-center gap-3 mt-10'>
     <p> --- Sip & Sevor --- </p>
       <h1 className='text-4xl text-[#522d20] dancing-script'>Our Popular Products </h1>
@@ -25,6 +28,7 @@ function App() {
           ></CoffeeCard>)
         }
       </div>
+      <Coffee></Coffee>
     </>
   )
 }

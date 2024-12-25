@@ -10,11 +10,15 @@ import SignIn from './components/SignIn.jsx'
 import AuthProvider from './Provider/AuthProvider.jsx'
 import Users from './components/Users.jsx'
 import Main from './layout/Main.jsx'
+import ErrorPage from './ErrorPage/ErrorPage.jsx'
+import FAQ from './components/FAQ.jsx'
+import AboutUs from './components/AboutUs.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -43,6 +47,14 @@ const router = createBrowserRouter([
         element: <Users></Users>,
         loader: () => fetch('http://localhost:5000/user')
       },
+      {
+        path: '/FAQ',
+        element: <FAQ></FAQ>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
+      }
     ]
   },
 
